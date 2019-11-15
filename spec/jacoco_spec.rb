@@ -20,7 +20,6 @@ module Danger
 
         allow(@dangerfile.git).to receive(:modified_files).and_return(modified_files)
         allow(@dangerfile.git).to receive(:added_files).and_return(added_files)
-
       end
 
       it :report do
@@ -48,7 +47,6 @@ module Danger
         @my_plugin.report path_a
 
         expect(@dangerfile.status_report[:markdowns][0].message).to include("| `com/example/CachedRepository` | 50% | 70% | :warning: |")
-
       end
 
       it 'test with bigger overlapped package coverage' do
@@ -63,7 +61,6 @@ module Danger
         @my_plugin.report path_a
 
         expect(@dangerfile.status_report[:markdowns][0].message).to include("| `com/example/CachedRepository` | 50% | 70% | :warning: |")
-
       end
 
       it 'test with lower overlapped package coverage' do
@@ -78,7 +75,6 @@ module Danger
         @my_plugin.report path_a
 
         expect(@dangerfile.status_report[:markdowns][0].message).to include("| `com/example/CachedRepository` | 50% | 77% | :warning: |")
-
       end
 
       it 'test with overlapped package coverage and bigger class coverage' do
@@ -94,7 +90,6 @@ module Danger
         @my_plugin.report path_a
 
         expect(@dangerfile.status_report[:markdowns][0].message).to include("| `com/example/CachedRepository` | 50% | 100% | :warning: |")
-
       end
 
       it 'test with overlapped package coverage and lowwer class coverage' do
@@ -110,7 +105,6 @@ module Danger
         @my_plugin.report path_a
 
         expect(@dangerfile.status_report[:markdowns][0].message).to include("| `com/example/CachedRepository` | 50% | 80% | :warning: |")
-
       end
 
       it 'adds a link to report' do
@@ -122,7 +116,6 @@ module Danger
         @my_plugin.report(path_a, 'http://test.com/')
 
         expect(@dangerfile.status_report[:markdowns][0].message).to include("| [`com/example/CachedRepository`](http://test.com/com.example/CachedRepository.html) | 50% | 80% | :warning: |")
-
       end
 
     end
