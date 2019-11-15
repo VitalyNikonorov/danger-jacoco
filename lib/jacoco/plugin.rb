@@ -96,12 +96,8 @@ module Danger
         size = item.size
         path = path[0...-size]
         coverage = minimum_package_coverage_map[path]
-        if path.size > 0
-          path = path[0...-1]
-        end
-        if coverage != nil
-          return coverage
-        end
+        path = path[0...-1] unless path.empty?
+        return coverage unless coverage.nil?
       end
       return nil
     end
@@ -174,8 +170,8 @@ module Danger
     def report_link(class_name, report_url)
       if report_url.empty?
           "`#{class_name}`"
-      else 
-          report_filepath = class_name.gsub(/\/(?=[^\/]*\/.)/, '.') + ".html"
+      else
+          report_filepath = class_name.gsub(/\/(?=[^\/]*\/.)/, '.') + '.html'
           "[`#{class_name}`](#{report_url + report_filepath})"
       end
     end
