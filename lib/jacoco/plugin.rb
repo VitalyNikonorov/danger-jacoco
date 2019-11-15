@@ -169,10 +169,10 @@ module Danger
 
     def report_link(class_name, report_url)
       if report_url.empty?
-          "`#{class_name}`"
+        "`#{class_name}`"
       else
-          report_filepath = class_name.gsub(/\/(?=[^\/]*\/.)/, '.') + '.html'
-          "[`#{class_name}`](#{report_url + report_filepath})"
+        report_filepath = class_name.gsub(/\/(?=[^\/]*\/.)/, '.') + '.html'
+        "[`#{class_name}`](#{report_url + report_filepath})"
       end
     end
 
